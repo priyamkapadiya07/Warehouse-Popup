@@ -5,6 +5,11 @@ app_description = "While creating sales invoice we will get warehouse selection 
 app_email = "info@fusionsofttech.co.in"
 app_license = "mit"
 
+doctype_js = {
+    "Sales Invoice": "public/js/sales_invoice.js"
+}
+
+
 # Apps
 # ------------------
 
