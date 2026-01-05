@@ -83,6 +83,6 @@ There are many ways you can contribute even if you don't code:
 1. If you find any issues, even if it is a typo, you can [raise an issue](https://github.com/priyamkapadiya07/Warehouse-Popup/issues/new) to inform us.
 
 
-<!-- ## License
+## License
 
-Hrms Checkin is released under the [MIT License.](https://github.com/murtaza-ghadiali/employee-resume/blob/main/license.txt) -->
+Warehouse Popup is released under the [MIT License.](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/license.txt)
