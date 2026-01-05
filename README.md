@@ -1,41 +1,91 @@
-### Warehouse_popup
+<div align="center">
 
-While creating sales invoice we will get warehouse selection popup in this popup we check the item  stock details with warehouse informartion.
+<h1>Warehouse Popup</h1>
 
-### Installation
+Quickly select the best warehouse while creating Sales Invoices in ERPNext.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+<br><br>
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch main
-bench install-app warehouse_popup
-```
+<!--
+You can add screenshots later like this:
 
-### Contributing
+![image](https://github.com/your-username/warehouse_popup/blob/main/screenshots/popup-1.png)
+![image](https://github.com/your-username/warehouse_popup/blob/main/screenshots/popup-2.png)
+-->
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+</div>
 
-```bash
-cd apps/warehouse_popup
-pre-commit install
-```
+---
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+## Introduction
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+**Warehouse Popup** is a custom ERPNext app designed to improve the Sales Invoice workflow.
 
-### CI
+By default, ERPNext automatically selects a warehouse when an item is added. In real-world usage, items are often available in multiple warehouses, and users must manually check stock and change the warehouse every time.
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+This app solves that problem.
 
-- CI: Installs this app and runs unit tests on every push to `main` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+When an item is selected in a Sales Invoice, a popup appears showing all warehouses where the item is available along with their stock quantity. The warehouse with the highest stock is clearly marked as **Recommended**, and users can select the desired warehouse with a single click.
+
+The result is a faster, cleaner, and more reliable workflow.
+
+---
+
+## Features
+
+-   Automatically opens a **warehouse selection popup** when an item is selected.
+-   Lists **all warehouses** where the item is available.
+-   Shows **available quantity** for each warehouse.
+-   Highlights the **recommended warehouse** (highest stock).
+-   One-click **Use** button for each warehouse.
+-   Popup appears neatly at the **bottom-right** corner.
+-   Modern, clean UI that matches ERPNext design.
+-   No ERPNext core changes.
+-   Upgrade-safe and production-ready.
+
+---
+
+## How It Works
+
+1. User selects an item in the **Sales Invoice Items** table.
+2. ERPNext default warehouse is cleared automatically.
+3. The app fetches live stock data from the Bin table.
+4. A popup appears listing available warehouses and quantities.
+5. The recommended warehouse is highlighted.
+6. User clicks **Use** on any warehouse.
+7. The warehouse field is set instantly for that item row.
+
+---
+
+## Installation
+
+Make sure you already have a working Frappe site with ERPNext installed.
+
+### Step 1. Download the app
+
+1.  Download the app using the Bench CLI.
+
+    ```bash
+    bench get-app --branch [branch name] https://github.com/priyamkapadiya07/Warehouse-Popup.git
+    ```
+
+Replace `[branch name]` with the branch that you're using for Frappe Framework, ERPNext.
+If it isn't specified, the `--branch` option will default to **develop**.
+
+2.  Install the app on your site.
+
+    ```bash
+    bench --site [site name] install-app warehouse_popup
+    ```
+
+## Contributions and Community
+
+There are many ways you can contribute even if you don't code:
+
+1. You can start by giving a star to this repository!
+1. If you find any issues, even if it is a typo, you can [raise an issue](https://github.com/priyamkapadiya07/Warehouse-Popup/issues/new) to inform us.
 
 
-### License
+<!-- ## License
 
-mit
+Hrms Checkin is released under the [MIT License.](https://github.com/murtaza-ghadiali/employee-resume/blob/main/license.txt) -->
