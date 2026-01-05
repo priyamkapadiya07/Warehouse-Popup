@@ -8,7 +8,7 @@ Quickly select the best warehouse while creating Sales Invoices in ERPNext.
 
 ## Demo Video
 
-▶️ [Watch Demo Video](https://user-images.githubusercontent.com/xxxxx/demo.mp4)
+▶️ [Watch Demo Video](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/warehouse_popup.mp4)
 
 
 
