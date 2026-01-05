@@ -6,12 +6,9 @@ Quickly select the best warehouse while creating Sales Invoices in ERPNext.
 
 <br><br>
 
-<!--
-You can add screenshots later like this:
 
-![image](https://github.com/your-username/warehouse_popup/blob/main/screenshots/popup-1.png)
-![image](https://github.com/your-username/warehouse_popup/blob/main/screenshots/popup-2.png)
--->
+![image](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/image.png)
+
 
 </div>
 
