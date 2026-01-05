@@ -12,7 +12,7 @@ Quickly select the best warehouse while creating Sales Invoices in ERPNext.
 
 
 
-![image](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/image.png)
+<!-- ![image](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/image.png) -->
 
 
 </div>
