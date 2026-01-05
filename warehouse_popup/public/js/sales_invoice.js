@@ -28,12 +28,7 @@ frappe.ui.form.on("Sales Invoice Item", {
 function show_warehouse_dialog(row, data) {
     const dialog = new frappe.ui.Dialog({
         title: "Select Warehouse",
-        fields: [
-            {
-                fieldname: "html",
-                fieldtype: "HTML"
-            }
-        ]
+        fields: [{ fieldname: "html", fieldtype: "HTML" }]
     });
 
     // Find highest stock
@@ -44,12 +39,14 @@ function show_warehouse_dialog(row, data) {
             ${data.map(d => `
                 <div class="warehouse-row ${d.actual_qty === maxQty ? "best-stock" : ""}">
                     <div class="wh-info">
-                        <div class="wh-name">${d.warehouse}</div>
+                        <div class="wh-name">
+                            ${d.warehouse}
+                            ${d.actual_qty === maxQty ? `<span class="recommended-badge">Recommended</span>` : ``}
+                        </div>
                         <div class="wh-qty">Qty: ${d.actual_qty}</div>
                     </div>
-                    <button class="use-wh"
-                        data-warehouse="${d.warehouse}">
-                        ${d.actual_qty === maxQty ? "Recommended" : "Use"}
+                    <button class="use-wh" data-warehouse="${d.warehouse}">
+                        Use
                     </button>
                 </div>
             `).join("")}
@@ -128,26 +125,35 @@ function move_dialog_to_bottom_right(dialog) {
                 background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
             }
 
-            .best-stock .wh-name {
-                color: #065f46;
-            }
-
-            /* Left info */
+            /* Info */
             .wh-info {
                 display: flex;
                 flex-direction: column;
-                gap: 2px;
+                gap: 4px;
             }
 
             .wh-name {
                 font-weight: 600;
                 color: #111827;
                 font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
             }
 
             .wh-qty {
                 font-size: 12px;
                 color: #047857;
+            }
+
+            /* Recommended badge */
+            .recommended-badge {
+                background: #22c55e;
+                color: #fff;
+                font-size: 10px;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: 500;
             }
 
             /* Use button */
@@ -165,14 +171,6 @@ function move_dialog_to_bottom_right(dialog) {
             .use-wh:hover {
                 background: #1d4ed8;
                 transform: translateY(-1px);
-            }
-
-            .best-stock .use-wh {
-                background: #16a34a;
-            }
-
-            .best-stock .use-wh:hover {
-                background: #15803d;
             }
         `;
         document.head.appendChild(style);
