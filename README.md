@@ -2,7 +2,7 @@
 
 <h1>Warehouse Popup</h1>
 
-Quickly select the best warehouse while creating Sales Invoices in ERPNext.
+Quickly select the best warehouse while creating Sales Invoices and Sales Orders in ERPNext.
 
 <br><br>
 
@@ -21,13 +21,13 @@ Quickly select the best warehouse while creating Sales Invoices in ERPNext.
 
 ## Introduction
 
-**Warehouse Popup** is a custom ERPNext app designed to improve the Sales Invoice workflow.
+**Warehouse Popup** is a custom ERPNext app designed to improve the Sales Invoice and Sales Order workflow.
 
 By default, ERPNext automatically selects a warehouse when an item is added. In real-world usage, items are often available in multiple warehouses, and users must manually check stock and change the warehouse every time.
 
 This app solves that problem.
 
-When an item is selected in a Sales Invoice, a popup appears showing all warehouses where the item is available along with their stock quantity. The warehouse with the highest stock is clearly marked as **Recommended**, and users can select the desired warehouse with a single click.
+When an item is selected in a Sales Invoice or Sales Order, a popup appears showing all warehouses where the item is available along with their stock quantity. The warehouse with the highest stock is clearly marked as **Recommended**, and users can select the desired warehouse with a single click.
 
 The result is a faster, cleaner, and more reliable workflow.
 
@@ -49,7 +49,7 @@ The result is a faster, cleaner, and more reliable workflow.
 
 ## How It Works
 
-1. User selects an item in the **Sales Invoice Items** table.
+1. User selects an item in the **Sales Invoice or Sales Order Items** table.
 2. ERPNext default warehouse is cleared automatically.
 3. The app fetches live stock data from the Bin table.
 4. A popup appears listing available warehouses and quantities.
