@@ -6,7 +6,8 @@ app_email = "info@fusionsofttech.co.in"
 app_license = "mit"
 
 doctype_js = {
-    "Sales Invoice": "public/js/sales_invoice.js"
+    "Sales Invoice": "public/js/sales_invoice.js",
+    "Sales Order": "public/js/sales_order.js"
 }
 
 

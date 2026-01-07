@@ -1,4 +1,4 @@
-frappe.ui.form.on("Sales Invoice Item", {
+frappe.ui.form.on("Sales Order Item", {
     item_code(frm, cdt, cdn) {
         const row = locals[cdt][cdn];
         if (!row.item_code) return;
