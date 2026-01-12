@@ -35,6 +35,7 @@ The result is a faster, cleaner, and more reliable workflow.
 
 ## Features
 
+-   Compatible with Frappe v15 and v16
 -   Automatically opens a **warehouse selection popup** when an item is selected.
 -   Lists **all warehouses** where the item is available.
 -   Shows **available quantity** for each warehouse.
@@ -62,8 +63,22 @@ The result is a faster, cleaner, and more reliable workflow.
 ## Installation
 
 Make sure you already have a working Frappe site with ERPNext installed.
+This app was originally built for **Frappe v15**, and it also works on **Frappe v16** with a small setup adjustment.
 
-### Step 1. Download the app
+---
+
+## Supported Versions
+
+| Component | Version |
+|---------|--------|
+| Frappe | v15, v16 |
+| ERPNext | v15, v16 |
+| Node.js | **24.x (mandatory for v16)** |
+| Python | ≥ 3.10 |
+
+---
+
+### Step 1. Download the app(For Frappe v15)
 
 1.  Download the app using the Bench CLI.
 
@@ -78,7 +93,30 @@ If it isn't specified, the `--branch` option will default to **develop**.
 
     ```bash
     bench --site [site name] install-app warehouse_popup
+    bench build --app warehouse_popup
     ```
+
+
+## Installation (For Frappe v16)
+
+### Step 1. Use Node.js 24 (Mandatory)
+
+```bash
+nvm use 24
+```
+
+Run this before any bench command.
+
+### Step 2. Download the app
+
+```bash
+bench get-app https://github.com/priyamkapadiya07/Warehouse-Popup.git
+bench --site yoursite.local install-app warehouse_popup
+bench build --app warehouse_popup
+bench restart
+```
+
+---
 
 ## Contributions and Community
 
