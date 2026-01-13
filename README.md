@@ -10,10 +10,7 @@ Quickly select the best warehouse while creating Sales Invoices and Sales Orders
 
 ![Quick Preview](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/warehouse_popup.gif)
 
-
-
 <!-- ![image](https://github.com/priyamkapadiya07/Warehouse-Popup/blob/main/Readme%20images/image.png) -->
-
 
 </div>
 
@@ -35,16 +32,16 @@ The result is a faster, cleaner, and more reliable workflow.
 
 ## Features
 
--   Compatible with Frappe v15 and v16
--   Automatically opens a **warehouse selection popup** when an item is selected.
--   Lists **all warehouses** where the item is available.
--   Shows **available quantity** for each warehouse.
--   Highlights the **recommended warehouse** (highest stock).
--   One-click **Use** button for each warehouse.
--   Popup appears neatly at the **bottom-right** corner.
--   Modern, clean UI that matches ERPNext design.
--   No ERPNext core changes.
--   Upgrade-safe and production-ready.
+- Compatible with Frappe v15 and v16
+- Automatically opens a **warehouse selection popup** when an item is selected.
+- Lists **all warehouses** where the item is available.
+- Shows **available quantity** for each warehouse.
+- Highlights the **recommended warehouse** (highest stock).
+- One-click **Use** button for each warehouse.
+- Popup appears neatly at the **bottom-right** corner.
+- Modern, clean UI that matches ERPNext design.
+- No ERPNext core changes.
+- Upgrade-safe and production-ready.
 
 ---
 
@@ -69,12 +66,12 @@ This app was originally built for **Frappe v15**, and it also works on **Frappe 
 
 ## Supported Versions
 
-| Component | Version |
-|---------|--------|
-| Frappe | v15, v16 |
-| ERPNext | v15, v16 |
-| Node.js | **24.x (mandatory for v16)** |
-| Python | ≥ 3.10 |
+| Component | Version                      |
+| --------- | ---------------------------- |
+| Frappe    | v15, v16                     |
+| ERPNext   | v15, v16                     |
+| Node.js   | **24.x (mandatory for v16)** |
+| Python    | ≥ 3.10                       |
 
 ---
 
@@ -96,7 +93,6 @@ If it isn't specified, the `--branch` option will default to **develop**.
     bench build --app warehouse_popup
     ```
 
-
 ## Installation (For Frappe v16)
 
 ### Step 1. Use Node.js 24 (Mandatory)
@@ -109,12 +105,12 @@ Run this before any bench command.
 
 ### Step 2. Download the app
 
-    ```bash
-    bench get-app https://github.com/priyamkapadiya07/Warehouse-Popup.git
-    bench --site [site name] install-app warehouse_popup
-    bench build --app warehouse_popup
-    bench restart
-    ```
+```bash
+bench get-app https://github.com/priyamkapadiya07/Warehouse-Popup.git
+bench --site [site name] install-app warehouse_popup
+bench build --app warehouse_popup
+bench restart
+```
 
 ---
 
@@ -124,7 +120,6 @@ There are many ways you can contribute even if you don't code:
 
 1. You can start by giving a star to this repository!
 1. If you find any issues, even if it is a typo, you can [raise an issue](https://github.com/priyamkapadiya07/Warehouse-Popup/issues/new) to inform us.
-
 
 ## License
 
