@@ -4,17 +4,18 @@ name: CI
 on:
   push:
     branches:
-      - develop
+      - main
   pull_request:
 
 concurrency:
-  group: develop-warehouse_popup-${{ github.event.number }}
+  group: main-warehouse_popup-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     name: Server
+
 
     services:
       redis-cache:
@@ -36,7 +37,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        frappe-version: [version-15, develop]
+        include:
+          - frappe-version: version-15
+            python-version: "3.10"
+            node-version: 18
+          - frappe-version: version-16
+            python-version: "3.14"  # Required for Frappe v16
+            node-version: 24        # Required for Frappe v16
 
     steps:
       - name: Clone
@@ -50,12 +57,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: ${{ matrix.python-version }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node-version }}
           check-latest: true
 
       - name: Cache pip
@@ -80,22 +87,26 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install MariaDB Client
-        run: sudo apt-get install mariadb-client-10.6
+        run: sudo apt-get install mariadb-client
+
+      - name: Debug Matrix
+        run: |
+          echo "Testing against Frappe Branch: '${{ matrix.frappe-version }}'"
 
       - name: Setup
         run: |
           pip install frappe-bench
-          bench init --skip-redis-config-generation --skip-assets --frappe-branch ${{ matrix.frappe-version }} --python "$(which python)" ~/frappe-bench
+          bench init --skip-redis-config-generation --skip-assets --frappe-branch "${{ matrix.frappe-version }}" --python "$(which python)" ~/frappe-bench
           mariadb --host 127.0.0.1 --port 3306 -u root -proot -e "SET GLOBAL character_set_server = 'utf8mb4'"
           mariadb --host 127.0.0.1 --port 3306 -u root -proot -e "SET GLOBAL collation_server = 'utf8mb4_unicode_ci'"
 
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
-          bench get-app warehouse_popup $GITHUB_WORKSPACE
+          bench get-app sales_warehouse_selector $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
-          bench --site test_site install-app warehouse_popup
+          bench --site test_site install-app sales_warehouse_selector
           bench build
         env:
           CI: 'Yes'
@@ -104,6 +115,6 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench --site test_site set-config allow_tests true
-          bench --site test_site run-tests --app warehouse_popup
+          bench --site test_site run-tests --app sales_warehouse_selector
         env:
           TYPE: server
