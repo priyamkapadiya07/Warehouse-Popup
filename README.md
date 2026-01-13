@@ -109,12 +109,12 @@ Run this before any bench command.
 
 ### Step 2. Download the app
 
-```bash
-bench get-app https://github.com/priyamkapadiya07/Warehouse-Popup.git
-bench --site yoursite.local install-app warehouse_popup
-bench build --app warehouse_popup
-bench restart
-```
+    ```bash
+    bench get-app https://github.com/priyamkapadiya07/Warehouse-Popup.git
+    bench --site [site name] install-app warehouse_popup
+    bench build --app warehouse_popup
+    bench restart
+    ```
 
 ---
 
