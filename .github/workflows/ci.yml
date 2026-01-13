@@ -103,10 +103,10 @@ jobs:
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
-          bench get-app sales_warehouse_selector $GITHUB_WORKSPACE
+          bench get-app warehouse_popup $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
-          bench --site test_site install-app sales_warehouse_selector
+          bench --site test_site install-app warehouse_popup
           bench build
         env:
           CI: 'Yes'
@@ -115,6 +115,6 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench --site test_site set-config allow_tests true
-          bench --site test_site run-tests --app sales_warehouse_selector
+          bench --site test_site run-tests --app warehouse_popup
         env:
           TYPE: server
